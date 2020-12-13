@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Мой сайт портфолио</title> 
+    
+    <!-- Инструкция для IE, отображать страницу по максимально новым стандартам которые в них прошиты     -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Отображать страницу в масштабе 100%    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Нормализация стилей Стардантизация и нормализация стилей, т.к. разные браузеры по разному отражаютшрифты, стили заголовков https://cdnjs.com/libraries/normalize нужно подключать перед всеми стилями, т.к. изначально выравнивает все стили в браузере, кроме того нормалайз сбрасывает все стили -->
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css">
+    
+    <!-- Собственные стили -->
+    
+    <link rel="stylesheet" href="css/main.css">
+    
+    
+    <!-- Подключение веб-шрифтов -->
+    
+    <link href="https://fonts.googleapis.com/css?family=Merriweather|PT+Sans+Caption:400,700" rel="stylesheet"> 
+    
+    <!--   У нас исползуется нестандартный шрифт для иконок, https://www.bootstrapcdn.com/fontawesome/ -->
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon/favicon-16x16.png">
+    
+</head>
+<body>
+    
+<!-- ......................................
+
+HEADER
+
+............................................-->
+  
+<div class="header">
+    <!-- После дива создается прямоугольный блок, псоле мы задаем ему высоту, ширинуДалее создадим три блока 1) Названи__е сайта 2) деятельность(слогана) 3)для иконки -->
+     
+    <div class="header__title">Александр Опанасенков</div>
+    <div class="header__slogan">Верстка сайтов на HTML и CSS<br> HTML5 CSS3 JS jQuery</div>
+    <div class="header__arrow">
+<!--        Вставляем иконку с сайта   и вставляем код     <i class="fa fa-chevron-down" aria-hidden="true"></i>
+-->
+    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+    </div>
+   
+    
+    
+</div>
+  
+<!-- ......................................
+
+POTFOLIO
+
+............................................-->
+
+<div class="portfolio">
+<!--    Контент нужно ограничить по ширине и центрировать. Делать это мы будем с помощью дополнительного блока -->
+<!--затем создадим три отдельных блока у которых будет класс кол-3 и каждый из блоков будет описывать колонку с фиксированной шириной и для того, что бы не описывали ширину для каждого блока и в подвале тоже мы напишем один универсальный класс и будем потом его использовать    -->
+    <div class="container">
+<!-- Пропишем блок для заголовка -->
+        <div class="title">
+            Портфолио
+        </div>
+    
+    <div class="row">
+<!-- ряд создаем если присутствует несколько колонок -->
+<!-- Работа в портфолио -->
+<!-- Создаем дополнительный блок portfolio-item для того если будет несколько рядов с работами -->
+        <div class="col-4">
+            <div class="portfolio-item">
+                <div class="portfolio-item__img">
+                    <img src="img/portfolio/project_organica.jpg" alt="Макет Органика">
+    <!-- Внутри будет находиться изображение работы -->   
+                </div>
+                <div class="portfolio-item__title">
+    <!-- Внутри будет находиться заголовок -->
+                    <a href="work-organica.html">Макет Органика</a> 
+    <!-- href в данном случае указывает адрес перехода -->
+                </div>
+                <div class="portfolio-item__text">
+    <!-- Внутри будет находиться описание рабботы -->   
+                    <p>Верстка одностраничного сайта по PSD макету.</p>    
+                </div>
+            </div>
+        </div>
+<!-- // Работа в портфолио -->
+        
+        <!-- Работа в портфолио -->
+        <div class="col-4">
+            <div class="portfolio-item">
+                <div class="portfolio-item__img">
+                    <img src="img/portfolio/project_apollo.jpg" alt="Учебный макет Аполло">
+    <!-- Внутри будет находиться изображение работы -->   
+                </div>
+                <div class="portfolio-item__title">
+    <!-- Внутри будет находиться заголовок -->
+                    <a href="work-apollo.html">Учебный макет Аполло</a> 
+    <!-- href в данном случае указывает адрес перехода -->
+                </div>
+                <div class="portfolio-item__text">
+    <!-- Внутри будет находиться описание рабботы -->   
+                    <p>Верстка лендинга хостинг компании. Мобильная адаптивность.</p>    
+                </div>
+            </div>
+        </div>
+<!-- // Работа в портфолио -->
+        
+        <!-- Работа в портфолио -->
+        <div class="col-4">
+            <div class="portfolio-item">
+                <div class="portfolio-item__img">
+                    <img src="img/portfolio/project_portfolio.jpg">
+    <!-- Внутри будет находиться изображение работы -->   
+                </div>
+                <div class="portfolio-item__title">
+    <!-- Внутри будет находиться заголовок -->
+                    <a href="work-portfolio.html">Личный сайт портфолио</a> 
+    <!-- href в данном случае указывает адрес перехода -->
+                </div>
+                <div class="portfolio-item__text">
+    <!-- Внутри будет находиться описание рабботы -->   
+                    <p>Верстка личного сайта портфолио на которм вы сейчас находитесь.</p>    
+                </div>
+            </div>
+        </div>
+<!-- // Работа в портфолио -->
+        
+    </div>
+<!--        Таким образом мы создали структуру для первого блока с работой и помещена в контейнер col-4 , таких блоков у нас буте три. И еще важный момент - колонки которые мы помещаем располагаються в один ряд. и эти колонки (изображение, заголовок и описание) мы объеденим в один блок <div class="row">. Это нам нужно для того что бы они не нарушали структура нашего макета, позже рассмотрим как именно.   -->
+            
+    </div>   
+</div> 
+        
+ <!-- ......................................
+
+FOOTER
+
+............................................-->
+<div class="footer"> 
+<!-- Это тот div class="footer", который будет иметь темно-синий цвеьт фона. Внутри footer создаем еще один div class="container для того, что бы выровнять текст по центу и весь  контент по центру-->
+    <div class="container">
+    <!-- Далее создаем div class="row" и в нем будут колонки и у них будет обтекание float:left, и что бі они не віходили за пределі ряда контейнера и вообщем футера -->
+        <div class="row">
+            <div class="col-4">
+                <p class="footer__name">Александр Опанасенков</p>
+                <p>HTML верстка и разработка сайтов</p>
+            </div>
+            <div class="col-4">
+                <p class="footer__social">Мои профили в соцсетях:</p>
+                <p class="footer__social-icons">
+                    <a href="#" target="_blank">
+                        <i class="fa fa-vk" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" target="_blank">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" target="_blank">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" target="_blank">
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" target="_blank">
+                        <i class="fa fa-youtube" aria-hidden="true"></i>
+                    </a>
+                </p>
+            </div>
+            <div class="col-4">
+            <!-- Для кнопки мы будем использовать class="button" и т.к. эта сссылка будет вести на страницу вконтакте, что бы пользователь не ушел с нашнго сайта после клика на нашу ссылку, а рядом открылась новая вкладка мы пропишем атрибут target="_blank"  -->
+               <div><a href="#" class="button" target="_blank">связаться Вконтакте</a></div>
+               <p>Напишите мне, что бы заказать или узнать <br>  стоимость верстки Вашего проекта</p>
+               <!-- Создаем <br>, на десктопе он нам не понадобиться, а вот когда мы будем оптимизировать проект под планшеты и смартфоны он нам понадобиться, это улучшить его читабельность. -->
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,378 @@
+html, body {
+    font-family: 'PT Sans Caption', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    min-width: 280px;
+}
+
+img {
+    display: inline-block;
+}
+a {
+    transition: 0.2s ease-out;
+}
+
+/*        пустая область появляется из за того, что когда браузер определяет ширину блока, то реальная ширина блока равняется следующему : реальная ширина = + width + (border у нас он равен 0) + padding 15+15 = /  */
+/*        По умолчанию у каждого блока есть такое свойство как box-sizing: content-box. Поэтому нам нужно переопределить это свойство и поменять content-box на  border-box */
+/* Т.е. если у элемента есть рамки и отступы они просто сожмут контент, но сама ширина элемента будет не больше, чем указано в параметре width */
+* {
+    box-sizing: border-box;
+}
+        
+
+/*....................................................
+
+GRID
+
+.....................................................*/
+
+.container {
+    width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.row:after {
+    clear: both;
+/* -- Т.е. очистить потоки обтекания справа и слева -- */
+    content: "";
+/* Указываем пустой контент, т.к. если не указать пустой контент 
+то after просто не отобразиться на странице и не сработает */
+    display: table;
+/* Указываем table, что бы корректно отображался в 
+современных и старых браузерах */
+    
+}
+
+/* есть проблема, когда элементы выстраиваются в ряд с помощью флоат лефт, то контейнер в котором они находяться не может их корректно обернуть, для этого необходимо сделать сброс обтекания, очистка потоков обтекания флоат лефт и райт */
+
+.col-4 {
+/* Между колонками у нас будут отступы справа */
+    width: 360px;
+    margin-right: 30px;
+/* Теперь нам нужно блоки поставить горизонтально */
+    float: left;
+/* Последняя колонка не помещается, для этого мы установим ей псевдокласс    */
+}
+.col-4:last-child {
+    margin-right: 0px;
+}
+
+    
+ /*...................................................
+
+HEADER
+
+.....................................................*/   
+
+
+/*Точкой мы обращаемся к header*/
+
+.header {
+/*    Цвет для фона */
+    background: #343c4e; /*    Цвет для фона */
+    background-image: url(../img/bg/bg-header.jpg); /*    фоновое изображение для данного блока*/
+/*    далее пишем свойство, что бы он не повторялся*/
+    background-repeat: no-repeat;
+/*    Спозиционируем наш фон */
+    background-position: center; 
+/*    Пропорционально растягивался и заполнял весь блок внутри которого он находится*/
+    background-size: cover;
+/*    Единица измерения, которая равна единицам высоты высоты окна браузераю Т.е. высота шапки будет равна 100% от высоты браузера, но минимальная высота 400, т.е. если окно браузера будет меньше чем 400, то шапка не маштабируется */
+    height: 100vh; 
+    min-height: 400px; 
+    color: #FFF;
+/*    Далее выровняем текст по центру */
+    text-align: center;
+/*    Далее нам нужно выровнять по вертикали */
+    display: flex;
+/*   Затем нам нужно задать направление контента, он может идти в ряд или в столбец, по умолчанию он становиться в ряд*/
+    flex-direction: column;
+/*    затем выравниваем по горизонтали */
+    align-items: center;
+/*    затем прописываем Джестивай контент Задает выравнивание вдоль главной оси*/
+    justify-content:center;
+/*    блоку прописіваем свойство position сщ значением relativ, что бы показать что блок является родителем */
+    position: relative;
+}
+
+/*  Стилизируем заголовок и слоган в шапке*/
+.header__title {
+    font-size: 56px;
+    margin-bottom: 30px;
+    font-family: font-family: 'Merriweather', serif;
+    margin-top: -50px;
+    
+}
+
+.header__slogan {
+    font-size: 28px;
+    line-height: 42px;
+    
+}
+
+.header__arrow {
+    font-size: 48px;
+    width: 60px;
+    height: 50px;
+    margin-left: -30px;
+/*    затем спозиционируем ее в данном блоке, будем применять абсолютное позицционирование*/
+    position: absolute;
+    bottom: 50px;
+/*    оступила половину блока который является родителем*/
+    left: 50%;
+    
+} 
+
+/*....................................................
+
+
+PORTFOLIO
+
+.....................................................*/
+.portfolio {
+    padding-top: 70px;
+    padding-bottom: 100px;
+}
+.portfolio-item {
+    margin-bottom: 20px;
+}
+
+.title {
+    font-size: 46px;
+    margin-bottom: 60px;
+    font-family: 'Merriweather', serif;
+    text-align: center;
+}
+
+.portfolio-item__img {
+    margin-bottom: 17px;
+}
+/* Мы выбираем max-width: 100%. Таким образом мы говорим, что ширина изображения максимальная может быть равна 100% ширины контейнера в котором она лежит. Если ширина контейнера будет меньше чем ширина картинки, то картинка должна подстроится по ширине.*/
+.portfolio-item__img img {
+    max-width: 100%;
+    height: auto;
+}
+.portfolio-item__title {
+    font-size: 24px;
+    line-height: normal;
+    margin-bottom: 5px;
+}
+
+.portfolio-item__title a {
+/* Убираем у ссылки подчеркивание */ 
+    text-decoration: none;
+    color: #000;
+/* Даем ей тонкое подчеркивание */
+    border-bottom: 1px solid #FFF;
+}
+.portfolio-item__title a:hover {
+    color: #0052c2;
+    border-color: rgba(0, 82, 194, 0.3);
+}
+
+.portfolio-item__text p {
+    margin-top: 0px;
+    margin-bottom: 15px;
+}
+
+/*....................................................
+
+PORTFOLIO SINGLE PAGE
+
+.....................................................*/
+.portfolio-sigle-page {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+.portfolio-sigle-page img {
+    margin-bottom: 50px;
+/*    Зададим что бы картинка не выходила за пределы контейнера */
+    max-width: 100%;
+/*    А высота будет автоматической */
+    height: auto;
+/*    Зададим картинке блочный эффект, для того, что бы ссылка не становилась в один ряд с картинкой */
+}
+.button-back {
+    font-weight: 700;
+    text-decoration: none;
+    color: #0052C2;
+/*  Заглавные буквы text-transform: uppercase;  */
+    text-transform: uppercase;
+/*    Расстояние между буквы */
+    letter-spacing: 1.6px;
+    display: inline-block;
+    
+    border-width: 2px;
+    border-color: #0052C2;
+    border-style: solid;
+    border-radius: 50px;
+    
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 23px;
+    padding-right: 23px;
+    
+    margin-bottom: 13px;
+/*    Для плавного перехода кнопки используем свойство transition */
+    transition: 0.2s ease-out;
+    
+}
+
+.button-back:hover {
+    color: #FFF;
+    background-color: #0052C2;
+}
+/*....................................................
+
+
+FOOTER
+
+.....................................................*/
+.footer {
+    background-color: #061634;
+    color: #6479a2;
+    padding-top: 90px;
+    padding-bottom: 190px;
+}
+/* У всех <p> нормалайз задает отступы
+сверху и снизу, что бы этого избежать
+*/
+.footer p {
+    margin-top: 0px;
+    margin-bottom: 15px;
+}
+/* Далее начнем стилизовать текст в колонках и начнем с первой колонки у нас есть тег <p> class="footer__name" Этот класс находиться внутри тега <p> и это значит, что мы выбираем на странице тег с классом сlass="footer__name*/
+
+p.footer__name {
+    font-size: 26px;
+    margin-bottom: 10px;
+    line-height: normal;
+    font-family: 'Merriweather', serif;
+}
+
+p.footer__social {
+    color: #FFF;
+}
+/* Обратим внимание, что иконки не отображаются белым, т.к. сейчас они как ссылки, а ссылки по умолчанию синие*/
+p.footer__social-icons {
+    color: #FFF;
+}
+p.footer__social-icons a{
+    color: #FFF;
+    text-decoration: none;
+    margin-right: 30px;
+}
+p.footer__social-icons a:last-child {
+    margin-right: 0px;
+}
+p.footer__social-icons a:hover {
+    color: #FFE400;
+}
+.button {
+    font-weight: 700;
+    text-decoration: none;
+    color: #FFF;
+/*  Заглавные буквы text-transform: uppercase;  */
+    text-transform: uppercase;
+/*    Расстояние между буквы */
+    letter-spacing: 1.6px;
+    display: inline-block;
+    
+    border-width: 2px;
+    border-color: white;
+    border-style: solid;
+    border-radius: 50px;
+    
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 23px;
+    padding-right: 23px;
+    
+    margin-bottom: 13px;
+/*    Для плавного перехода кнопки используем свойство transition */
+    transition: 0.2s ease-out;
+    
+}
+
+.button:hover {
+    color: #061634;
+    background-color: #FFF;
+    
+}
+
+
+/*....................................................
+
+MEDIA 
+
+Медиа запросы это специальные запросы, которые понимает браузер 
+и если это условие выполняется, то тогда он будет добавлять к 
+нашей странице другие правила CSS стилей и по другому ее оформлять
+Т.е. грубо говря мы можем дать браузеру условие и спросить его в этом условии: 
+"Если страница будет меньше определенной ширины, то он будет выполнять другие CSS правила,
+нежели те которые мы описали вверху. Правила которые мы описали выше они выполняются по умолчани.
+Далее мы должны описать то как должны отображать блоки на странице, если ширина страницы меньше, чем 1160px.
+
+.....................................................*/
+
+/* Напишем медиазапрос @media - это директива, определяющая то, 
+что мы начали писать свой медиа запрос. В скобках мы пишем условие при котором 
+данный медиазапрос будет выполнен. Возьмем max-width: 1160px с запасом, хотя ширина контейнера 1140*/
+
+/* При ширине экрана в 1160рх и менее,т.е. max-width: устанавливает параметр 
+максимально допустимой ширины. Больше нельзя, меньше подходит. При таком условии будет выполнен наш запрос. */
+
+@media (max-width: 1160px) {
+    
+    .container {
+        width: 100%;
+    }
+    .col-4 {
+        width: 100%;
+        margin: 0;
+        margin-bottom: 30px;
+        padding-left: 15px;
+        padding-right: 15px;
+        text-align: center;
+    }
+    .header {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+        
+    .header__title {
+        font-size: 38px;
+        line-height: 48px;
+        margin-bottom: 15px;
+    }
+    .header__slogan {
+        font-size: 22px;
+        line-height: 38px;
+    }
+    .portfolio {
+        padding-top: 40px;
+        padding-bottom: 50px;
+    }
+    .title {
+        font-size: 36px;
+    }
+    .footer {
+        padding-top: 70px;
+        padding-bottom: 60px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
